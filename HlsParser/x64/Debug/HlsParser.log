@@ -1,0 +1,6 @@
+﻿  HlsParser.cpp
+C:\Users\Danny\source\repos\HlsParser\HlsParser\HlsParser.cpp(39,17): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\Danny\source\repos\HlsParser\HlsParser\HlsParser.cpp(41,15): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\Danny\source\repos\HlsParser\HlsParser\HlsParser.cpp(47,17): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+C:\Users\Danny\source\repos\HlsParser\HlsParser\HlsParser.cpp(49,15): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
+  HlsParser.vcxproj -> C:\Users\Danny\source\repos\HlsParser\x64\Debug\HlsParser.exe
