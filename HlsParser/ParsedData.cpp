@@ -40,5 +40,5 @@ const std::vector<std::unique_ptr<AudioType>>& ParsedData::GetAudioVector() {
 	return this->m_audioVector;
 }
 const std::vector<std::unique_ptr<ImageType>>& ParsedData::GetImageVector() {
-	//return this->m_audioVector;
+	return this->m_imageVector;
 }
