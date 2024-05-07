@@ -19,6 +19,16 @@ AudioType::AudioType(std::string groupId, std::string language, std::string name
 	m_channels(channels),
 	m_uri(uri) {}
 
+const std::string AudioType::GetLanguage() const {
+	return this->m_language;
+}
+const std::string AudioType::GetName() const {
+	return this->m_name;
+}
+const std::string AudioType::GetGroupID() const {
+	return this->m_groupId;
+}
+
 void AudioType::Print() {
 	std::cout << "Type: " << this->GetType() << ", Group ID: " << m_groupId << ",Name: " << m_name << ", Language: " << m_language
 		<< ", Default: " << m_default << ", AutoSelect: " << m_autoSelect << ", Channels: " << m_channels << ", URI: " << m_uri << "\n";
@@ -48,6 +58,14 @@ uint32_t VideoType::GetBandwidth() const {
 	return this->m_bandwidth;
 }
 
+uint32_t VideoType::GetAvgBandwidth() const {
+	return this->m_avgBandwidth;
+}
+
+double VideoType::GetFrameRate() const {
+	return this->m_frameRate;
+}
+
 // Constructor for image type
 ImageType::ImageType(uint32_t bandwidth, std::string codecs, std::string resolution, std::string videoRange,
 	std::string closedCaptions) :
@@ -57,6 +75,10 @@ ImageType::ImageType(uint32_t bandwidth, std::string codecs, std::string resolut
 	m_resolution(resolution),
 	m_videoRange(videoRange),
 	m_closedCaptions(closedCaptions) {}
+
+const uint32_t ImageType::GetBandwidth() const {
+	return this->m_bandwidth;
+}
 
 void ImageType::Print() {
 	std::cout << "Type: " << this->GetType() << ", Bandwidth: " << m_bandwidth << ", Codecs: " << m_codecs

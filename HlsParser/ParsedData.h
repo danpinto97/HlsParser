@@ -20,8 +20,26 @@ public:
 	const std::vector<std::unique_ptr<VideoType>>& GetVideoVector();
 	const std::vector<std::unique_ptr<AudioType>>& GetAudioVector();
 	const std::vector<std::unique_ptr<ImageType>>& GetImageVector();
-	void SortVideoOnBandWidth();
-	
+
+	// Video Sorters
+	void SortVideoOnBandWidthAsc();
+	void SortVideoOnBandWidthDesc();
+	void SortVideoOnAvgBandWidthAsc();
+	void SortVideoOnAvgBandWidthDesc();
+	void SortVideoOnFrameRateAsc();
+	void SortVideoOnFrameRateDesc();
+
+	// Image Sorters
+	void SortImageOnBandWidthAsc();
+	void SortImageOnBandWidthDesc();
+
+	// Audio Sorters
+	void SortAudioOnLanguageAsc();
+	void SortAudioOnLanguageDesc();
+	void SortAudioOnNameAsc();
+	void SortAudioOnNameDesc();
+	void SortAudioOnGroupAsc();
+	void SortAudioOnGroupDesc();
 };
 
 

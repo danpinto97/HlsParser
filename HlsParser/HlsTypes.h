@@ -14,7 +14,6 @@ public:
 	// Default constructor should just set the type
 	HlsType(std::string type);
 	std::string GetType();
-	std::string GetOriginalLine();
 	virtual void Print() = 0;
 
 };
@@ -32,6 +31,9 @@ private:
 public:
 	~AudioType() {};
 	AudioType(std::string groupId, std::string language, std::string name, std::string defau, std::string autoSelect, std::string channels, std::string uri);
+	const std::string GetLanguage() const;
+	const std::string GetName() const;
+	const std::string GetGroupID() const;
 	void Print();
 };
 
@@ -61,6 +63,8 @@ public:
 		std::string videoRange, std::string audio, std::string closedCaptions, std::string attachment);
 	void Print();
 	uint32_t GetBandwidth() const;
+	uint32_t GetAvgBandwidth() const;
+	double GetFrameRate() const;
 };
 
 // EXT-X-I-FRAME-STREAM-INF
@@ -77,5 +81,6 @@ public:
 	void Print();
 	~ImageType() {};
 	ImageType(uint32_t bandwidth, std::string codecs, std::string resolution, std::string videoRange, std::string closedCaptions);
+	const uint32_t GetBandwidth() const;
 };
 #endif

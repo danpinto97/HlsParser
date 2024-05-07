@@ -122,6 +122,25 @@ void HlsParser::Parse(const LPCWSTR& fileLocation, ParsedData& parsedData){
 typedef void (ParsedData::*sorting_method)(void);
 typedef std::unordered_map<std::string, sorting_method> sorting_map;
 
+static void BuildSortingMap(sorting_map& m) {
+	// Video Sorters
+	m["video:bandwidth:asc"] = &ParsedData::SortVideoOnBandWidthAsc;
+	m["video:bandwidth:desc"] = &ParsedData::SortVideoOnBandWidthDesc;
+	m["video:avgbandwidth:asc"] = &ParsedData::SortVideoOnAvgBandWidthAsc;
+	m["video:avgbandwidth:desc"] = &ParsedData::SortVideoOnAvgBandWidthDesc;
+	m["video:framerate:asc"] = &ParsedData::SortVideoOnFrameRateAsc;
+	m["video:framerate:desc"] = &ParsedData::SortVideoOnFrameRateDesc;
+	m["image:bandwidth:asc"] = &ParsedData::SortImageOnBandWidthAsc;
+	m["image:bandwidth:desc"] = &ParsedData::SortImageOnBandWidthDesc;
+	m["audio:language:asc"] = &ParsedData::SortAudioOnLanguageAsc;
+	m["audio:language:desc"] = &ParsedData::SortAudioOnLanguageDesc;
+	m["audio:name:asc"] = &ParsedData::SortAudioOnNameAsc;
+	m["audio:name:desc"] = &ParsedData::SortAudioOnNameDesc;
+	m["audio:group:asc"] = &ParsedData::SortAudioOnGroupAsc;
+	m["audio:group:desc"] = &ParsedData::SortAudioOnGroupDesc;
+}
+
+
 int main()
 {
 	// Set up our url and destination
@@ -146,11 +165,10 @@ int main()
 
 	std::cout << "Data downloaded and parsed.\n";
 	std::string userInput;
-	parsedData.SortVideoOnBandWidth();
 
 	// Declare unordered map of string to functions
 	sorting_map m;
-	m["video:bandwidth"] = &ParsedData::SortVideoOnBandWidth;
+	BuildSortingMap(m);
 
 	// Main loop for user input
 	while(true) {
@@ -165,7 +183,13 @@ int main()
 			if (it != m.end()) {
 				// Call corresponding sorting function
 				(parsedData.*(it->second))();
-				PrintHlsType(parsedData.GetVideoVector());
+				// Don't like this at all, would rather also have string->fxn map or something
+				if (userInput[0] == 'v')
+					PrintHlsType(parsedData.GetVideoVector());
+				else if (userInput[0] == 'i')
+					PrintHlsType(parsedData.GetImageVector());
+				else if (userInput[0] == 'a')
+					PrintHlsType(parsedData.GetAudioVector());
 			}
 			else
 				std::cout << "Sorry, unsupported command.\n";
