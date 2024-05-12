@@ -152,8 +152,13 @@ int main()
 	FileLoader fileLoader(url, destination);
 	
 	// Download the file
-	fileLoader.DownloadFile();
+	bool downloaded = fileLoader.DownloadFile();
 	
+	if (!downloaded)
+	{
+		std::cout << "File failed to download, double check URL and destination.\nExiting!\n";
+		exit(0);
+	}
 	// Initialize parsed data
 	ParsedData parsedData;
 

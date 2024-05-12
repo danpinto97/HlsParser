@@ -9,7 +9,7 @@
 #include <vector>
 #include "ParsedData.h"
 
-class HlsParser : Parser {
+class HlsParser : Parser<ParsedData> {
 public:
 	HlsParser();
 	~HlsParser();
