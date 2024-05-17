@@ -109,7 +109,7 @@ void HlsParser::Parse(const LPCWSTR& fileLocation, ParsedData& parsedData){
 			}
 			else if (token == "#EXT-X-I-FRAME-STREAM-INF") {
 				// Image
-				parsedData.AppendImage( ParseImageLine(line));
+				parsedData.AppendImage(ParseImageLine(line));
 			}
 		}
 		hlsFile.close();
@@ -170,7 +170,7 @@ int main()
 
 	std::cout << "Data downloaded and parsed.\n";
 	std::string userInput;
-
+	std::string previousInput = "";
 	// Declare unordered map of string to functions
 	sorting_map m;
 	BuildSortingMap(m);
@@ -186,8 +186,10 @@ int main()
 			// Otherwise try to lookup function
 			sorting_map::iterator it = m.find(userInput);
 			if (it != m.end()) {
-				// Call corresponding sorting function
-				(parsedData.*(it->second))();
+				// If we didn't just sort this way
+				if(previousInput != userInput)
+					// Call corresponding sorting function
+					(parsedData.*(it->second))();
 				// Don't like this at all, would rather also have string->fxn map or something
 				if (userInput[0] == 'v')
 					PrintHlsType(parsedData.GetVideoVector());
@@ -195,6 +197,7 @@ int main()
 					PrintHlsType(parsedData.GetImageVector());
 				else if (userInput[0] == 'a')
 					PrintHlsType(parsedData.GetAudioVector());
+				previousInput = userInput;
 			}
 			else
 				std::cout << "Sorry, unsupported command.\n";
