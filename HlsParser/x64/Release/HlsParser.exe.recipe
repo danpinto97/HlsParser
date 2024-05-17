@@ -2,7 +2,7 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>C:\Users\Danny\source\repos\HlsParser\x64\Release\HlsParser.exe</FullPath>
+      <FullPath>C:\Users\Danny\source\HlsParser\x64\Release\HlsParser.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

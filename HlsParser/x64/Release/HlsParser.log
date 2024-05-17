@@ -1,10 +1,1 @@
-﻿  HlsParser.cpp
-C:\Users\Danny\source\repos\HlsParser\HlsParser\HlsParser.cpp(22,17): warning C4267: 'initializing': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Users\Danny\source\repos\HlsParser\HlsParser\HlsParser.cpp(26,21): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-C:\Users\Danny\source\repos\HlsParser\HlsParser\HlsParser.cpp(28,21): warning C4267: '=': conversion from 'size_t' to 'unsigned int', possible loss of data
-  Generating code
-  11 of 884 functions ( 1.2%) were compiled, the rest were copied from previous compilation.
-    7 functions were new in current compilation
-    8 functions had inline decision re-evaluated but remain unchanged
-  Finished generating code
-  HlsParser.vcxproj -> C:\Users\Danny\source\repos\HlsParser\x64\Release\HlsParser.exe
+﻿
