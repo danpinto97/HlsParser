@@ -1,5 +1,5 @@
 # HlsParser
-C++ project for downloading, parsing, and sorting HLS files
+C++ project for downloading, parsing, and sorting HLS files.\
 Documentation used: https://developers.broadpeak.io/docs/foundations-hls
 
 # Building
