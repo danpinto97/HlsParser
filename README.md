@@ -1,5 +1,6 @@
 # HlsParser
 C++ project for downloading, parsing, and sorting HLS files
+Documentation used: https://developers.broadpeak.io/docs/foundations-hls
 
 # Building
 To build, open the solution file in Visual Studios (I used 2022) and build. This was built using C++ 14.
